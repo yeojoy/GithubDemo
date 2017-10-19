@@ -1,0 +1,45 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+
+    ext.kotlin_version = '1.1.51'
+    ext.support_version = '26.1.0'
+    ext.constraint_version = '1.0.2'
+    ext.databinding_version = '2.3.3'
+    ext.architecture_version = '1.0.0-beta2'
+    ext.retrofit_version = '2.3.0'
+    ext.okhttp_version = '3.8.1'
+    ext.gson_version = '2.8.1'
+    ext.dagger_version = '2.11-rc2'
+
+    repositories {
+        jcenter()
+        maven { url 'https://maven.google.com' }
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.3.3'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath 'me.tatarka:gradle-retrolambda:3.4.0'
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+
+    repositories {
+        jcenter()
+        mavenCentral()
+        // For Android Support Libraries
+        maven { url 'https://maven.google.com' }
+        // For Dagger2 Snapshot
+        maven { url 'http://oss.jfrog.org/artifactory/oss-snapshot-local' }
+    }
+
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
